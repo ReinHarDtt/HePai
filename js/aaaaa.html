@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div>
+		<p class="word-length">
+			超过20个字多余隐藏超过20个字多余隐藏超过20个字多余隐藏超过20个字多余隐藏
+		</p>
+		<span class="btn">
+			[展开]
+		</span>
+	</div>
+	<div>
+		<p class="word-length">
+			超过20个字多余隐藏超过20个字多余隐藏超过20个字多余隐藏超过20个字多余隐藏
+		</p>
+		<span class="btn">
+			[展开]
+		</span>
+	</div>
+	<div>
+		<p class="word-length">
+			超过20个字多余隐藏超过20个字多余隐藏超过20个字多余隐藏超过20个字多余隐藏
+		</p>
+		<span class="btn">
+			[展开]
+		</span>
+	</div>
+	<script type="text/javascript" src="jquery2.1.4.min.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		var wordLength = function(){
+			var ininWordArr = [];
+			var nowWordArr = [];
+			$('.word-length').each(function(){
+				var ininWord = $(this).html();
+				ininWordArr.push(ininWord);	
+				var nowWord = $(this).html().substr(0,150)+'......';
+				$(this).html(nowWord);
+				nowWordArr.push(nowWord);
+			})
+			$(document).on('click','.btn',function(){
+				var i = $('.btn').index($(this));
+				if ($(this).html() == '[展开]') {
+					$(this).html('[收起]');
+					$(this).prev().html(ininWordArr[i]);
+				} else {
+					$(this).html('[展开]');
+					$(this).prev().html(nowWordArr[i]);
+				}
+				return false;
+			})
+		}()
+	}
+	</script>
+</body>
+</html>
